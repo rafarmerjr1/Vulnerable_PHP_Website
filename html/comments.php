@@ -32,7 +32,7 @@
       <?php
                   include 'db.php';
                   $conn = OpenCon();
-                  //Super vulnerable SQLi #1:
+                  //Super vulnerable XSS #1:
                   if (isset( $_REQUEST['name']) && isset( $_REQUEST['comment'])){
                       $conn->query("INSERT INTO comments (name, usercomment) values ('" . $_REQUEST['name'] . "','" . $_REQUEST['comment']. "' )");
                       echo '
