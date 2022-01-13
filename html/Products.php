@@ -37,7 +37,7 @@
                   }
                     while( $row = $res->fetch_assoc() ) {
                         echo
-                        "Item: " . $row['name']. "Price --- " . $row['price']. " " . "<br>";
+                        "Item: " . $row['name']."   ".  "Price --- " . $row['price']. " " . "<br>";
 
                 }
 
