@@ -20,7 +20,31 @@
       <h2>Products!</h2>
       <p>Available Products listed below.</p>
       <p>Please remember we are a custom shop and can only keep a few items in stock at a time.</p>
-      <!--Upload portal will go here-->
+      <form class="mb-4" method="POST">
+                             <div class="input-group">
+                                 <input name="product_id" type="text" class="form-control" placeholder="product_id goes here" aria-label="product_id" aria-describedby="basic-addon2">
+                                     <button class="form-control btn-outline-primary" type="submit">Search for Product</button>
+                                 </div>
+                             </form>
+
+      <?php
+                  include 'db.php';
+                  $conn = OpenCon();
+                  //:
+                  if (isset( $_REQUEST['product_id'] )){
+                    $query = "SELECT * FROM products where product_id =".$_REQUEST['product_id'];
+                    $res = $conn->query($query);
+                  }
+                    while( $row = $res->fetch_assoc() ) {
+                        echo
+                        "Item: " . $row['name']. "Price --- " . $row['price']. " " . "<br>";
+
+                }
+
+
+                ?>
+
+
       <h2>Need assistance ordering?</h2>
       <p>Let us know in the "Leave A Review" page after logging in with your store account email address.
       and we will reach out to you as soon as possible.</p>

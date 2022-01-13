@@ -43,8 +43,6 @@
                   }
 
                   // ---------------------------------------------------------------------------------
-                  //include sample comments
-                  include("comments.html");
 
                   if( $res = $conn->query("SELECT * FROM comments where shown = True") ) {
                       while( $row = $res->fetch_assoc() ) {
@@ -52,7 +50,7 @@
                           <br>
                           <div class="d-flex mb-4">
                               <div class="d-flex">
-                              <div class="flex-shrink-0"><img class="rounded-circle" src="head.PNG" alt="..." /></div>
+                              <div class="flex-shrink-0"><img class="rounded-circle" src="resources/img/head_small.png" alt="..." /></div>
                               <div class="ms-3">
                                   <div class="fw-bold">' . $row["name"] .' </div>
                                   '. $row["usercomment"] .'
