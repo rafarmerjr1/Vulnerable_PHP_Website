@@ -9,3 +9,8 @@ Vulnerablities:
 - CSRF
 - LFI
 - RFI
+
+MySQL:
+127.0.0.1/phpadmin
+admin:administratorPassword!
+
