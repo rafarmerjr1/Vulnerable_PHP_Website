@@ -39,14 +39,20 @@
                     echo "Enter a product ID.  Format 001";
                   }
                   if (isset( $_REQUEST['product_id'] )){
-                    $query = "SELECT * FROM products where product_id =".$_REQUEST['product_id'];
-                    $res = $conn->query($query);
-
-                    while( $row = $res->fetch_assoc() ) {
-                        echo
-                        "Item: " . $row['name']."   ".  "Price --- " . $row['price']. " " . "<br>";
-                }}
-              }
+                    $product_id=$_REQUEST['product_id'];
+                    $query = "SELECT * FROM products where product_id = $product_id";
+                    if ($res = $conn->query($query)){
+                    while($obj = $res->fetch_object()){
+                      //echo $query;
+                      print_r($obj);
+                    }}
+                    elseif($conn->error){
+                      print_r($conn->error);
+                    }}
+                }
+                //  while( $row = $res->fetch_assoc() ) {
+                    //  "Item: " . $row['name']."   ".  "Price --- " . $row['price']. " " . "<br>";
+            //  }
       if (!isset($_SESSION['username'])){
         echo "<h2>You must <a href=login.php>LOG IN </a> to use this tool.</h2>";
       }

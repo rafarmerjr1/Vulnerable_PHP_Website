@@ -7,13 +7,11 @@
     <h2><a href='index.php'>Custom Clothes</a></h2>
     <div id="menu">
       <ul>
-        <!--<li><a href="index.php" class="current">Home</a></li> -->
         <li><a href="comments.php">Leave A Review!</a></li>
         <li><a href="upload.php">Upload Order Form</a></li>
         <li><a href="Products.php">Products</a></li>
         <li><a href="login.php">Login</a></la>
         <li><a href="logout.php">Logout</a></la>
-
       </ul>
     </div>
   </div>
