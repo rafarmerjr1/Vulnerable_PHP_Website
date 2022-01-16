@@ -22,14 +22,16 @@
       <h2>Products!</h2>
       <p>Available Products listed below.</p>
       <p>Please remember we are a custom shop and can only keep a few items in stock at a time.</p>
+      <?php
+      session_start();
+      if (isset($_SESSION['username'])) {
+      echo'
       <form class="mb-4" method="POST">
                              <div class="input-group">
                                  <input name="product_id" type="text" class="form-control" placeholder="product_id goes here" aria-label="product_id" aria-describedby="basic-addon2">
                                      <button class="form-control btn-outline-primary" type="submit">Search for Product</button>
                                  </div>
-                             </form>
-
-      <?php
+                             </form>';
                   include 'db.php';
                   $conn = OpenCon();
                   //:
@@ -44,6 +46,10 @@
                         echo
                         "Item: " . $row['name']."   ".  "Price --- " . $row['price']. " " . "<br>";
                 }}
+              }
+      if (!isset($_SESSION['username'])){
+        echo "<h2>You must <a href=login.php>LOG IN </a> to use this tool.</h2>";
+      }
                 ?>
       <h2>Need assistance ordering?</h2>
       <p>Let us know in the "Leave A Review" page after logging in with your store account email address.

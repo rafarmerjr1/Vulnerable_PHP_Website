@@ -19,6 +19,10 @@
   </div>
   <div id="content">
     <div id="left">
+      <?php
+      session_start();
+      if (!isset($_SESSION['username'])){
+        echo'
       <h2>Login</h2>
       <p>Please log in below.</p>
       <form class="mb-4" method="POST">
@@ -27,18 +31,16 @@
                                  <div class="input-group-append">
                                      <input name="password" type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon2">
                                      <button class="form-control btn-outline-primary" type="submit">Login</button>
-                                  <!--   <p><input type="checkbox" name="remember">Remember me</p> -->
                                  </div>
-                             </form>
-
-      <?php
+                             </form>';
                   include 'db.php';
                   $conn = OpenCon();
 
                   if (!isset( $_REQUEST['username']) && !isset( $_REQUEST['password'])){
                     echo('Please enter username and password'); //doesn't print
                   }
-                  // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
+                  if (isset( $_REQUEST['username']) && isset( $_REQUEST['password'])){
+                  // Preparing the SQL statement will prevent SQL injection.
                   if ($stmt = $conn->prepare('SELECT Username, Password FROM users WHERE Username = ?')) {
 	                   // Bind parameters (s = string)
 	                    $stmt->bind_param('s', $_REQUEST['username']);
@@ -54,9 +56,7 @@
                            session_start();
                            $_SESSION['username']=$username;
                            $_SESSION['password']=$password;
-                           //setcookie ("username",$_POST["username"],time()+ 3600);
-                           //setcookie ("password",$_POST["password"],time()+ 3600);
-                           echo "You are now logged in.";
+                           echo "<h2>You are now logged in.</h2>";
                           die("<h2><a href='continue.php'>Click here to continue!</a></h2>");
                           // can also send to continue.php to display user info
 	                                      } else {
@@ -68,9 +68,12 @@
 	                                              echo 'Incorrect username and/or password!';
                                               }
                                               $stmt->close();
-                                          }
-                                            ?>
-
+                                          }}}
+      if (isset($_SESSION['username'])){
+        echo'
+        <h2>You are already logged in.</h2>';
+      }
+      ?>
       <h2>Need assistance ordering?</h2>
       <p>Let us know in the "Leave A Review" page after logging in with your store account email address.
       and we will reach out to you as soon as possible.</p>
