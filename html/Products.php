@@ -42,17 +42,21 @@
                     $product_id=$_REQUEST['product_id'];
                     $query = "SELECT * FROM products where product_id = $product_id";
                     if ($res = $conn->query($query)){
-                    while($obj = $res->fetch_object()){
+                //  if ($res = $conn->query("SELECT * FROM products where product_id ='" . $_REQUEST['product_id'] . "'"){
+                    print_r($query);
+                    while($obj = $res->fetch_array()){  //or fetch_object?
                       //echo $query;
                       print_r($obj);
+                      //print_r($res);
                     }}
                     elseif($conn->error){
                       print_r($conn->error);
+                      print_r($query);
                     }}
                 }
-                //  while( $row = $res->fetch_assoc() ) {
-                    //  "Item: " . $row['name']."   ".  "Price --- " . $row['price']. " " . "<br>";
-            //  }
+                // 5 or '1'='1'
+                //SELECT * FROM `products` WHERE `product_id`= 5 OR @@version
+                //SELECT * FROM `products` WHERE `product_id`= 5; SELECT @@version
       if (!isset($_SESSION['username'])){
         echo "<h2>You must <a href=login.php>LOG IN </a> to use this tool.</h2>";
       }
