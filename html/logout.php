@@ -1,13 +1,8 @@
-<html>
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<?php include("header.html"); ?>
 
 <?php
 session_start();
-session_destroy();
-// Redirect to the login page:
-header('Location: index.php');
+unset($_SESSION["username"]);
+unset($_SESSION["password"]);
+unset($_COOKIE['PHPSESSID']);
+header("Location:login.php");
 ?>
-
-<?php include("footer.html"); ?>
-</html>

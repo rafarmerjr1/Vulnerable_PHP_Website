@@ -27,7 +27,7 @@
                                  <div class="input-group-append">
                                      <input name="password" type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon2">
                                      <button class="form-control btn-outline-primary" type="submit">Login</button>
-                                     <p><input type="checkbox" name="remember" />Remember me</p>
+                                  <!--   <p><input type="checkbox" name="remember">Remember me</p> -->
                                  </div>
                              </form>
 
@@ -50,8 +50,15 @@
 	                    $stmt->fetch();
 	                     // Account exists, now we verify the password.
 	                       if ($_REQUEST['password'] === $password) {
-                           echo 'it worked';
                            //Session or Cookie setting goes here
+                           session_start();
+                           $_SESSION['username']=$username;
+                           $_SESSION['password']=$password;
+                           //setcookie ("username",$_POST["username"],time()+ 3600);
+                           //setcookie ("password",$_POST["password"],time()+ 3600);
+                           echo "You are now logged in.";
+                          die("<h2><a href='continue.php'>Click here to continue!</a></h2>");
+                          // can also send to continue.php to display user info
 	                                      } else {
 		                                        // Incorrect password
 		                                          echo 'Incorrect username and/or password!';
