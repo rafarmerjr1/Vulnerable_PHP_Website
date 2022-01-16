@@ -5,7 +5,7 @@
 	- if username=<username found on comments page> then use vulnerable SQL query
 		else use secure SQL query
 - require authentication to post comments
-- Write Python Server that can accept POST and GET requests and output the content. http.server may not do POSTs natively
+DONE -- Write Python Server that can accept POST and GET requests and output the content. http.server may not do POSTs natively
 - practice XSS against comment portal:
 	- by passing authentication via Python requests
 	- by stealing users cookies with XSS
