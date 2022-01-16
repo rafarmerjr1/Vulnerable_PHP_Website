@@ -4,14 +4,15 @@
 <body>
 <div id="wrap">
   <div id="top">
-    <h2>Custom Clothes</h2>
+    <h2><a href='index.php'>Custom Clothes</a></h2>
     <div id="menu">
       <ul>
-        <li><a href="index.php" class="current">Home</a></li>
+        <!--<li><a href="index.php" class="current">Home</a></li> -->
         <li><a href="comments.php">Leave A Review!</a></li>
         <li><a href="upload.php">Upload Order Form</a></li>
         <li><a href="Products.php">Products</a></li>
         <li><a href="login.php">Login</a></la>
+        <li><a href="logout.php">Logout</a></la>
       </ul>
     </div>
   </div>
@@ -41,9 +42,6 @@
 
                   </div>';
                   }
-
-                  // ---------------------------------------------------------------------------------
-
                   if( $res = $conn->query("SELECT * FROM comments where shown = True") ) {
                       while( $row = $res->fetch_assoc() ) {
                           echo '
@@ -56,21 +54,22 @@
                                   '. $row["usercomment"] .'
                               </div>
                           </div>
+                          </div>
                           ';
                       }
                   } ?>
       <h2>Unsatisfied with your purchase?</h2>
       <p>Let us know in the comment section above after logging in with your store account email address.</p>
-    </div>
-  <!--  <div id="right">
+</div>
+  <div id="right">
       <div class="box">
         <h2>Coming Soon!</h2>
         <p>I've always liked clothes a lot, and wanted to share my passion. </p>
         <h2>Write to us</h2>
         <p>Contact info coming soon</p>
-      </div> -->
+      </div>
     </div>
     <div id="clear"></div>
-  </div>
+
   <?php include("footer.html"); ?>
 </html>
