@@ -59,5 +59,17 @@ OSWE Vulns:
     Bypassing file upload restrictions and file extension filters
     PHP type juggling with loose comparisons
     PostgreSQL Extension and User Defined Functions
+    Bypassing REGEX restrictions
+    Magic hashes
+    Bypassing character restrictions
+    UDF reverse shells
+    PostgreSQL large objects
+    DOM-based cross site scripting (black box)
+    Server side template injection
+    Weak random token generation
+    XML external entity injection
+    RCE via database functions
+    OS command injection via WebSockets (black box)
 
+    
 
