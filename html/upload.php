@@ -17,16 +17,11 @@
   </div>
   <div id="content">
     <div id="left">
-      <h2>Upload your Order Form below</h2>
-      <p>Only CSV and Docx files are accepted.</p>
-      <!--Upload portal will go here
-        Attack will be something like:
-        SELECT * FROM `products` WHERE `product_id` = 1  union select 1,'','','' INTO OUTFILE '/home/robert/Documents/dev_env_website/vulnerable_webapp/html/one.php'#
-        turn off secure file privs
-    -->
-      <h2>Need assistance ordering?</h2>
-      <p>Let us know in the "Leave A Review" page after logging in with your store account email address.
-      and we will reach out to you as soon as possible.</p>
+      <h2>Enter form information here.</h2>
+      <p>Use this tool to check item stock:</p>
+      <!--XML Upload portal will go here  -->
+      <h2>Admin notes</h2>
+      <p>View File structure <a href=secretdir.php> here :</a></p>
     </div>
    <div id="right">
       <div class="box">
