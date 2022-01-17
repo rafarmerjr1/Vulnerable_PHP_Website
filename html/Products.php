@@ -47,7 +47,7 @@
                     }}
                     elseif($conn->error){
                       print_r($conn->error);
-                      print_r($query);
+                    //  print_r($query);
                     }}
                 }
                 //SELECT * FROM `products` WHERE `product_id` = 1 OR 1=1;
