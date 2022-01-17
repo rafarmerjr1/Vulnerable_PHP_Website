@@ -54,9 +54,8 @@
                       print_r($query);
                     }}
                 }
-                // 5 or '1'='1'
-                //SELECT * FROM `products` WHERE `product_id`= 5 OR @@version
-                //SELECT * FROM `products` WHERE `product_id`= 5; SELECT @@version
+                //SELECT * FROM `products` WHERE `product_id` = 1 OR 1=1;
+                // SELECT * FROM `products` WHERE `product_id` = 1 UNION SELECT NULL, `Username`,`Password` ,NULL FROM `users` WHERE `Username` = "webadmin"
       if (!isset($_SESSION['username'])){
         echo "<h2>You must <a href=login.php>LOG IN </a> to use this tool.</h2>";
       }
