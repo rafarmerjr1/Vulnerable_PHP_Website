@@ -42,12 +42,8 @@
                     $product_id=$_REQUEST['product_id'];
                     $query = "SELECT * FROM products where product_id = $product_id";
                     if ($res = $conn->query($query)){
-                //  if ($res = $conn->query("SELECT * FROM products where product_id ='" . $_REQUEST['product_id'] . "'"){
-                    print_r($query);
                     while($obj = $res->fetch_array()){  //or fetch_object?
-                      //echo $query;
                       print_r($obj);
-                      //print_r($res);
                     }}
                     elseif($conn->error){
                       print_r($conn->error);
