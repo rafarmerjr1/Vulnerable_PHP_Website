@@ -27,9 +27,10 @@ DONE -- require authentication to search for product ID
 - Explore XXE
 	XXE can be done by setting up an XML parser on the orders page
 	create a form that takes several areas of user input
-	and stores it as XML.  May need to disable security features that are built-in
+	and stores it as XML.  May need to disable security features that are built-in.
+	There could be a password or users file in the webroot folder that can be grabbed
 	https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection	
-- PHP type juggling?  Where to place this?
+- PHP type juggling?  Where to place this? Maybe on login page.
 - Implement improved appearance - Bootstrap or HTML/CSS template
 
 PHP app:
