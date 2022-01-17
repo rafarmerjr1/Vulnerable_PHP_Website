@@ -56,7 +56,15 @@
                            session_start();
                            $_SESSION['username']=$username;
                            $_SESSION['password']=$password;
+                           $_REQUEST['username']=$username2;
+                           if ($username2 == 'webadmin'){
+                             $_SESSION['usertype']=1;
+                           }
+                           if ($username2 != 'webadmin'){
+                             $_SESSION['usertype']=2;
+                           }
                            echo "<h2>You are now logged in.</h2>";
+                           //echo '<h2>$_SESSION['usertype']</h2>';
                           die("<h2><a href='continue.php'>Click here to continue!</a></h2>");
                           // can also send to continue.php to display user info
 	                                      } else {

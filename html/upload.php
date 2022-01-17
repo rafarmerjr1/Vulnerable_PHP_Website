@@ -17,12 +17,22 @@
   </div>
   <div id="content">
     <div id="left">
+      <?php
+      if ($_SESSION['usertype']==1){
+        echo'
       <h2>Enter form information here.</h2>
       <p>Use this tool to check item stock:</p>
       <!--XML Upload portal will go here  -->
       <h2>Admin notes</h2>
       <p>View File structure <a href=secretdir.php> here :</a></p>
-    </div>
+      </div>';
+    }
+     if ($_SESSION['usertype']!=1){
+       echo'
+       <h2> Restricted page. Admin only.</h2>
+    </div>';
+  }
+  ?>
    <div id="right">
       <div class="box">
         <h2>Coming Soon!</h2>
