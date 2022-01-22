@@ -13,18 +13,14 @@
 </form>
 <?php
 //Image upload functionality
-$target_dir = "/resources/user_images/";
+$root = getcwd();
+$target_dir = $root."/resources/user_images/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $uploadOk = 1;
 if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  print($imageFileType);
-  print($target_dir);
-  print($target_file);
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); //can check filesize later
   //Check filetype
-}
-
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
     echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
@@ -35,15 +31,16 @@ if(isset($_POST["submit"])) {
     $uploadOk = 1;
   }
   //check if passed upload screening
-  if ($uploadOk == 0) {
+  if ($uploadOk === 0) {
   echo "Sorry, your file was not uploaded.";
 }
-  if ($uploadOK == 1) {
-    print("words");
-      //if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file){
-      //  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  if ($uploadOk === 1) {
+    //echo "<p>I try</p>";
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
+      echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";}
 }
-  }
+}
+
 // Grab and display photographs:
 $root = getcwd();
 $photo_folder = $root.'/resources/user_images/';
