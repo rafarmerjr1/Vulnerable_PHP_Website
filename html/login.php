@@ -1,24 +1,5 @@
-<html>
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<?php include("header.html"); ?>
+<?php include("header.php"); ?>
 <body>
-<div id="wrap">
-  <div id="top">
-    <h2><a href='index.php'>Custom Clothes</a></h2>
-    <div id="menu">
-      <ul>
-        <!--<li><a href="index.php" class="current">Home</a></li> -->
-        <li><a href="comments.php">Leave A Review!</a></li>
-        <li><a href="upload.php">Upload Order Form</a></li>
-        <li><a href="Products.php">Products</a></li>
-        <li><a href="login.php">Login</a></la>
-        <li><a href="logout.php">Logout</a></la>
-
-      </ul>
-    </div>
-  </div>
-  <div id="content">
-    <div id="left">
       <?php
       session_start();
       if (!isset($_SESSION['username'])){
@@ -85,17 +66,9 @@
       <h2>Need assistance ordering?</h2>
       <p>Let us know in the "Leave A Review" page after logging in with your store account email address.
       and we will reach out to you as soon as possible.</p>
-    </div>
-  </div>
-  <div id="right">
-      <div class="box">
         <h2>Item out of stock?</h2>
         <p>Submit a pre-order form and we will contact you when it is available. </p>
         <h2>Pre-Order Form</h2>
         <p>Downloadable form coming soon</p>
-      </div>
-    </div>
-    <div id="clear"></div>
-  </div>
-  <?php include("footer.html"); ?>
+  <?php include("footer.php"); ?>
 </html>
