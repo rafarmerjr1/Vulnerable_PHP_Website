@@ -9,7 +9,7 @@
       session_start();
       if (isset($_SESSION['username'])) {
       echo'
-      <form>
+      <form method="POST">
           <input name="product_id" type="text" class="form-control" placeholder="product_id goes here" aria-label="product_id" aria-describedby="basic-addon2">
              <button class="form-control btn-outline-primary" type="submit">Search for Product</button>
                             </div>

@@ -22,7 +22,7 @@ DONE -- practice XSS against comment portal:
 	- Other XSS attack vectors
 DONE -- require authentication to search for product ID
 DONE -- add more products
-- Create an "admin only page" for XXE
+DONE -- Create an "admin only page" for XXE
 - Write Python script to:
 	- take users cookies via a POST request XSS
 	- use those cookies to authenticate through to the 'product search' page

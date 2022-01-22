@@ -6,19 +6,16 @@
         echo'
       <h2>Login</h2>
       <p>Please log in below.</p>
-      <form class="mb-4" method="POST">
-                             <div class="input-group">
-                                 <input name="username" type="text" class="form-control" placeholder="Username" aria-label="username" aria-describedby="basic-addon2">
-                                 <div class="input-group-append">
-                                     <input name="password" type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon2">
-                                     <button class="form-control btn-outline-primary" type="submit">Login</button>
-                                 </div>
+      <form method="POST">
+                                 <input name="username" type="text" placeholder="Username">
+                                     <input name="password" type="password" placeholder="Password">
+                                     <button type="submit">Login</button>
                              </form>';
                   include 'db.php';
                   $conn = OpenCon();
 
                   if (!isset( $_REQUEST['username']) && !isset( $_REQUEST['password'])){
-                    echo('Please enter username and password'); //doesn't print
+                    echo('<p>Please enter username and password</p>');
                   }
                   if (isset( $_REQUEST['username']) && isset( $_REQUEST['password'])){
                   // Preparing the SQL statement will prevent SQL injection.
@@ -37,31 +34,28 @@
                            session_start();
                            $_SESSION['username']=$username;
                            $_SESSION['password']=$password;
-                           $_REQUEST['username']=$username2;
-                           if ($username2 == 'webadmin'){
-                             $_SESSION['usertype']=1;
+                           if ($username == 'webadmin'){
+                             $_SESSION['usertype'] = 'admin';
+                           } else{
+                             $_SESSION['usertype']= 'user';
                            }
-                           if ($username2 != 'webadmin'){
-                             $_SESSION['usertype']=2;
-                           }
-                           echo "<h2>You are now logged in.</h2>";
+                           echo "<h3>You are now logged in.</h3>";
                            //echo '<h2>$_SESSION['usertype']</h2>';
-                          die("<h2><a href='continue.php'>Click here to continue!</a></h2>");
+                          die("<p><a href='continue.php'>Click here to continue!</a></p>");
                           // can also send to continue.php to display user info
 	                                      } else {
 		                                        // Incorrect password
-		                                          echo 'Incorrect username and/or password!';
+		                                          echo '<p>Incorrect username and/or password!</p>';
                                             }
                                           }  else {
 	                                             // Incorrect username
-	                                              echo 'Incorrect username and/or password!';
+	                                              echo '<p>Incorrect username and/or password!</p>';
                                               }
                                               $stmt->close();
                                           }}}
       if (isset($_SESSION['username'])){
-        echo'
-        <h3>You are already logged in.</h3>';
-      }
+        echo'<h3>You are already logged in.</h3>';}
       ?>
+  </body>
   <?php include("footer.php"); ?>
 </html>
