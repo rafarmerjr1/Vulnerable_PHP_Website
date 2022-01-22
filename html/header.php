@@ -3,8 +3,9 @@
   <header>
     <nav>
         <a href="comments.php">Leave A Review!</a>
-        <a href="upload.php">Upload Order Form</a>
+        <a href="upload.php">Uploads</a>
         <a href="Products.php">Products</a>
+        <a href="social.php">Gallery</a>
         <a href="login.php">Login</a>
        <a href="logout.php">Logout</a>
      </nav>

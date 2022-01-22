@@ -5,8 +5,8 @@
       if ($_SESSION['usertype'] == 'admin'){
         echo'
       <h4><u>Enter form information here.</u></h4>
-      <p>Use this tool to check item stock:</p>
-      <!--XML Upload portal will go here  -->
+      <p>Use this tool to check item stock:
+      Can be used as CSRF, malicious file upload or RFI?</p>
       <h4><u>Admin notes</u></h4>
       <p>View File structure <a href=secretdir.php> here</a></p>
       </div>';
