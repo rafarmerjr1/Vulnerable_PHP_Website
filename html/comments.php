@@ -1,3 +1,4 @@
+<html>
 <?php include("header.php"); ?>
 <body>
       <h2>Leave a Review below!</h2>
@@ -44,12 +45,5 @@
                   } ?>
       </tbody>
       </table>
-      
-      <h2>Unsatisfied with your purchase?</h2>
-      <p>Let us know in the comment section above after logging in with your store account email address.</p>
-        <h2>Coming Soon!</h2>
-        <p>I've always liked clothes a lot, and wanted to share my passion. </p>
-        <h2>Write to us</h2>
-        <p>Contact info coming soon</p>
+  </body>
   <?php include("footer.php"); ?>
-</html>

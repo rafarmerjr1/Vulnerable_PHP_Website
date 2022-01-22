@@ -9,9 +9,5 @@
      <li>Leave us a review if you like our site!</li>
      <li>Now Hiring! In need of a web developer</li>
    </ul>
-     <h2>About</h2>
-     <p>I've always liked clothes a lot, and wanted to share my passion. </p>
-     <h2>Write to us</h2>
-     <p>Contact info coming soon</p>
 </body>
 <?php include("footer.php"); ?>

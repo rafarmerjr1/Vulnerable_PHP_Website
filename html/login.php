@@ -60,15 +60,8 @@
                                           }}}
       if (isset($_SESSION['username'])){
         echo'
-        <h2>You are already logged in.</h2>';
+        <h3>You are already logged in.</h3>';
       }
       ?>
-      <h2>Need assistance ordering?</h2>
-      <p>Let us know in the "Leave A Review" page after logging in with your store account email address.
-      and we will reach out to you as soon as possible.</p>
-        <h2>Item out of stock?</h2>
-        <p>Submit a pre-order form and we will contact you when it is available. </p>
-        <h2>Pre-Order Form</h2>
-        <p>Downloadable form coming soon</p>
   <?php include("footer.php"); ?>
 </html>
