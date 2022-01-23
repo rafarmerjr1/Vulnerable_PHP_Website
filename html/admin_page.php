@@ -36,13 +36,21 @@ if (isset($_REQUEST['list_order'])){
   echo '</ul>';
 }
 //Now write tool allo admin to enter ../user_images/file.svg to execute XXE
- /*
+
 echo'
 <p>View Order details here.  Enter filename:</p>
 <form method ="POST">
-<input name="order" type="text" placeholder="filename">
-<button type ="submit" name="dir">Review Order</button></form>';
-*/
+<input name="view_order" type="text" placeholder="filename">
+<button type ="submit">Review Order</button></form>';
+if (isset($_REQUEST['view_order'])){
+  include 'hidden/secretdir.php';
+  $file = $_REQUEST['view_order'];
+  //view_orders($file);
+  $root = getcwd();
+  $filename = ($root.'/resources/orders/'.$file);
+  echo ''.$filename.'';
+}
+
 } else {
      echo'
      <h4><u> Restricted page. User "webadmin" only.</u></h4>

@@ -38,9 +38,15 @@ foreach ($a as $x){
   echo '</li>';
 }}
 }
-function view_order(){
+/*
+function view_order($file){
 echo 'nothing yet';
+$root = getcwd();
+$filename = ($root.'/resources/orders/'.$file);
+//echo shell_exec('cat'.$filename);
+echo ''.$filename.'';
 //need to write xml parser to allow for RFI
 }
+*/
 
 ?>
