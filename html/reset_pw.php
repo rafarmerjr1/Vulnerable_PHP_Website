@@ -31,11 +31,9 @@
     if ($stmt->num_rows > 0) {
        $stmt->bind_result($username, $password);
         $stmt->fetch();
-         // Account exists, now we change the password.
-           //if (($_POST['new_password'] == $_POST['new_password2']) && ($_POST['old_password'] == $password)){
            /*
-           The below comparison allows for php type juggling
-           // in burp, change 'old_password=foobar' to "old_password[]=''"
+           The below comparison allows for php type juggling:
+           in burp, change 'old_password=foobar' to "old_password[]=''"
            Empty array is evaluated to 0 in php
            */
            if (($_POST['new_password'] == $_POST['new_password2']) && (strcmp($_POST['old_password'],$password) == 0)){
