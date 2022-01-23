@@ -33,8 +33,6 @@
         $stmt->fetch();
            /*
            The below comparison allows for php type juggling:
-           in burp, change 'old_password=foobar' to "old_password[]=''"
-           Empty array is evaluated to 0 in php
            */
            if (($_POST['new_password'] == $_POST['new_password2']) && (strcmp($_POST['old_password'],$password) == 0)){
              $conn = OpenCon();

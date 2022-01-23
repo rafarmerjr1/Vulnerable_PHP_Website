@@ -8,7 +8,7 @@
 <?php
 //check authentication:
 session_start();
-if ($_SESSION['usertype'] == 'admin') {
+if (isset( $_SESSION['username'])) {
   echo'
 <form method="POST" enctype="multipart/form-data">
   <p>Hi webadmin,
@@ -49,7 +49,7 @@ if(isset($_POST["submit"])) {
 }
 if (!isset($_SESSION['username'])){
   echo'
-  <p> Please <a href=login.php>log in</a> as webadmin to upload images.</p>';
+  <p> Please <a href=login.php>log in</a> to upload images.</p>';
 }
 
 // Grab and display photographs:
