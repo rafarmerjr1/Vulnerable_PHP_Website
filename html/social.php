@@ -8,17 +8,18 @@
 <?php
 //check authentication:
 session_start();
-if (isset($_SESSION['username'])) {
+if ($_SESSION['usertype'] == 'admin') {
   echo'
 <form method="POST" enctype="multipart/form-data">
-  <p>Upload your own photo here!</p>
+  <p>Hi webadmin,
+  upload photos here:</p>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <button type="submit" name="submit">Upload!</button>
 </form>';
 }
 if (!isset($_SESSION['username'])){
   echo'
-  <p> Please <a href=login.php>log in</a> to upload images.</p>';
+  <p> Please <a href=login.php>log in</a> as webadmin to upload images.</p>';
 }
 ?>
 <?php

@@ -8,12 +8,21 @@
       <p>Use this tool to check item stock:
       Can be used as CSRF, malicious file upload or RFI?</p>
       <h4><u>Admin notes</u></h4>
-      <p>View File structure <a href=secretdir.php> here</a></p>
-      </div>';
+      <p>View File structure here:</p>
+      <form method ="POST"><button type ="submit" name="dir">Directory List</button></form>
+      ';
     } else {
        echo'
        <h4><u> Restricted page. User "webadmin" only.</u></h4>
-    </div>';
+    ';
   }
+
+  if (isset($_REQUEST['dir'])){
+    include 'hidden/secretdir.php';
+    echo '<ul>';
+    list_dir();
+    echo '</ul>';
+  }
+
   ?>
   <?php include("footer.php"); ?>

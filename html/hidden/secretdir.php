@@ -1,10 +1,14 @@
 <?php
 //add isAdmin check
+function list_dir(){
 $root = getcwd();
 echo $root;
 $a = scandir($root);
 foreach ($a as $x){
-  print($x);
-  echo nl2br("\r\n");
+  echo '<li>';
+  echo ''.$x.'';
+  echo '</li>';
+  //echo nl2br("\r\n");
+}
 }
 ?>
