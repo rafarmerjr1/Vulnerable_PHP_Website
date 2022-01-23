@@ -2,12 +2,14 @@
 
 - Stored XSS via comments to obtain user cookie
 - Authenticate with user cookie
+- upload a shell via .php.jgp
 - Navigate to products page
 - SQLi products page via union select for webadmin password
+OR
+- PHP type juggling to reset webadmin password
+THEN
 - authenticate as webadmin
-- uploads page is now available
-- use XML to obtain DB path and credentials
-- access phpmyadmin DB
-- use union select INTO OUTFILE to insert php script as cmd.php
-- use cmd.php for RCE
-- RCE for Reverse Shell?
+- admin page is now available
+- change shell from jpg to php
+- use uploaded shell for RCE
+- Get reverse shell?
