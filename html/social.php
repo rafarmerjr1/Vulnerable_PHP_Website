@@ -5,12 +5,22 @@
   <p>We haven't linked our social media accounts yet.
   But please upload images of yourself wearing our products here!</p>
   <br>
-
+<?php
+//check authentication:
+session_start();
+if (isset($_SESSION['username'])) {
+  echo'
 <form method="POST" enctype="multipart/form-data">
   <p>Upload your own photo here!</p>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <button type="submit" name="submit">Upload!</button>
-</form>
+</form>';
+}
+if (!isset($_SESSION['username'])){
+  echo'
+  <p> Please <a href=login.php>log in</a> to upload images.</p>';
+}
+?>
 <?php
 //Image upload functionality
 $root = getcwd();
@@ -32,12 +42,12 @@ if(isset($_POST["submit"])) {
   }
   //check if passed upload screening
   if ($uploadOk === 0) {
-  echo "Sorry, your file was not uploaded.";
+  echo "<p>Sorry, your file was not uploaded.</p>";
 }
   if ($uploadOk === 1) {
     //echo "<p>I try</p>";
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
-      echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";}
+      echo "<p>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</p>";}
 }
 }
 

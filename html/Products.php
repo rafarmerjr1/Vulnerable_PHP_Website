@@ -59,7 +59,7 @@
                 //SELECT * FROM `products` WHERE `product_id` = 1 OR 1=1;
                 // SELECT * FROM `products` WHERE `product_id` = 1 UNION SELECT NULL, `Username`,`Password` ,NULL FROM `users` WHERE `Username` = "webadmin"
       if (!isset($_SESSION['username'])){
-        echo "<h3>You must <a href=login.php>log in</a> to use this tool.</h3>";
+        echo "<h4>You must <a href=login.php>log in</a> to use this tool.</h4>";
       }
                 ?>
   <?php include("footer.php"); ?>
