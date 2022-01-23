@@ -66,7 +66,7 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "delete")){
   $trash_file = $trash_folder.$image_name;
   //echo '<p>'.$trash_file.'</p>';
   if (rename($photo, $trash_file)){
-    echo "<p>The file ". $photo. " has been moved to the trash folder.</p>";}
+    echo "<p>The file ". $image_name. " has been moved to the trash folder.</p>";}
     else {echo '<p>An error has occurred.</p>';}
   }
 //recover photo
