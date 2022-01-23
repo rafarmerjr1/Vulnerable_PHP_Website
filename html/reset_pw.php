@@ -31,20 +31,20 @@
     if ($stmt->num_rows > 0) {
        $stmt->bind_result($username, $password);
         $stmt->fetch();
-      //  echo 'Initial Connection made.';
          // Account exists, now we change the password.
-           if (($_POST['new_password'] == $_POST['new_password2']) && ($_POST['old_password'] == $password)){
+           //if (($_POST['new_password'] == $_POST['new_password2']) && ($_POST['old_password'] == $password)){
+           /*
+           The below comparison allows for php type juggling
+           // in burp, change 'old_password=foobar' to "old_password[]=''"
+           Empty array is evaluated to 0 in php
+           */
+           if (($_POST['new_password'] == $_POST['new_password2']) && (strcmp($_POST['old_password'],$password) == 0)){
              $conn = OpenCon();
-            // echo 'checked passwords';
-            // echo ''.$password.'';
              $username_entered = $_POST['Username'];  //allow to change other users
              $new_password = $_POST['new_password'];
-          //   echo ''.$new_password.''.$username_entered.'';
              $change="UPDATE users SET Password = '$new_password' where Username = '$username_entered'";
-          //   echo ''.$change.'';
              if ($run = $conn->query($change)){
-          //   echo 'Running Query';
-          //   print_r($run);
+             echo '<p>Password Changed!</p>';
            }else{
              echo 'Error resetting Password'; }
     }else{
