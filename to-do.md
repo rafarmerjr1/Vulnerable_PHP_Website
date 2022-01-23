@@ -8,7 +8,10 @@ Attack Path
 4. Shell can be uploaded via photos --done
 4. Shell executed to get reverse shell via webadmin --done 
 	        
-
+write bash script to authenticate user every 10-20 seconds
+	something like:
+	while true; do sleep 10; curl command; done;
+	and just use ctrl+c to stop it once you get the cookies?
 DONE --- Set up  authentication portal
 DONE -- Write Python Server that can accept POST and GET requests and output the content. http.server may not do POSTs natively
 DONE -- practice XSS against comment portal:
