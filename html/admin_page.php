@@ -25,39 +25,24 @@ echo '
     list_photos();
     echo '</ul>';
   }
-//check if image file exists
-echo '
-<h4><u>Delete or modify user-uploaded images.</u></h4>
-<p>Check if image exists here:</p>
-<form method ="POST">
-<input name="check_image" type="text" placeholder="image filename">
-<button type ="submit">Choose image</button>
-</form>';
-if (isset($_REQUEST['check_image'])){
-  $image_name=$_REQUEST['check_image'];
-  $root = getcwd();
-  $photo_dir = $root.'/resources/user_images';
-  $a = scandir($photo_dir);
-  foreach ($a as $x){
-    if ($x == $image_name){
-      echo '<p>Image: '.$image_name.' found!</p>';
-}
-}
-}
 echo'
-<p>Modify or Delete user-submitted image:</p>
+<p>Delete or Recover user-submitted image:</p>
 <form method="POST">
 <input name="select_image" type="text" placeholder="image filename"> <br>
 <label><input name="type" type="radio" value="delete"/>Delete Image</label> <br>
-<label><input name="type" type="radio" value="modify"/>Modify Image</label> <br>
 <label><input name="type" type="radio" value="recover"/>Recover Image</label> <br>
-<button type ="submit">Make Change</button>
+<label><input name="type" type="radio" value="rename"/>Rename Image</label> <br>
+<input name="new_name" type="text" placeholder="new image filename"> <br>
 <p><i> Warning: This change may be irreversible!</i></p>
+<button type ="submit">Make Change</button>
 </form>
 ';
 //delete photo
 if (isset($_REQUEST['select_image']) && ($_POST['type'] == "delete")){
-  $image_name=$_REQUEST['select_image'];
+  $image_name=htmlspecialchars($_REQUEST['select_image']);
+  // No ../ are allowed and something has to be requested
+  if( ($image_name == '') || (strpos($image_name, '../') !== false) || (strpos($image_name, '/') !== false)) {
+    exit('Invalid Request');}
   $root = getcwd();
   $photo = $root.'/resources/user_images/'.$image_name;
   $trash_folder = $root.'/resources/deleted_images/';
@@ -71,7 +56,7 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "delete")){
   }
 //recover photo
 if (isset($_REQUEST['select_image']) && ($_POST['type'] == "recover")){
-  $image_name=$_REQUEST['select_image'];
+  $image_name=htmlspecialchars($_REQUEST['select_image']);
   $root = getcwd();
   $photo = $root.'/resources/user_images/'.$image_name;
   $trash_folder = $root.'/resources/deleted_images/';
@@ -81,6 +66,18 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "recover")){
   //echo '<p>'.$trash_file.'</p>';
   if (rename($trash_file, $photo)){
     echo "<p>The file ".$image_name. " has been recovered.</p>";}
+    else {echo '<p>An error has occurred.</p>';
+    }
+  }
+//rename image
+if (isset($_REQUEST['select_image']) && ($_POST['type'] == "rename")){
+  $image_name=htmlspecialchars($_REQUEST['select_image']);
+  $root = getcwd();
+  $photo = $root.'/resources/user_images/'.$image_name;
+  $new_name = htmlspecialchars($_REQUEST['new_name']);
+  $new_photo = $root.'/resources/user_images/'.$new_name;
+  if (rename($photo,$new_photo)){
+    echo "<p>The file ".$image_name. " has been renamed to ".$new_name.".</p>";}
     else {echo '<p>An error has occurred.</p>';
     }
   }
