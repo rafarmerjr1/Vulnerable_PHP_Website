@@ -31,24 +31,27 @@
     if ($stmt->num_rows > 0) {
        $stmt->bind_result($username, $password);
         $stmt->fetch();
-        echo 'Initial Connection made.';
+      //  echo 'Initial Connection made.';
          // Account exists, now we change the password.
            if (($_POST['new_password'] == $_POST['new_password2']) && ($_POST['old_password'] == $password)){
              $conn = OpenCon();
-             echo 'checked passwords';
-             echo ''.$password.'';
+            // echo 'checked passwords';
+            // echo ''.$password.'';
              $username_entered = $_POST['Username'];  //allow to change other users
              $new_password = $_POST['new_password'];
-             echo ''.$new_password.''.$username_entered.'';
+          //   echo ''.$new_password.''.$username_entered.'';
              $change="UPDATE users SET Password = '$new_password' where Username = '$username_entered'";
-             echo ''.$change.'';
+          //   echo ''.$change.'';
              if ($run = $conn->query($change)){
-             echo 'Running Query';
-             print_r($run);
+          //   echo 'Running Query';
+          //   print_r($run);
            }else{
-             echo ''.print_r($conn->error,true).''; }
+             echo 'Error resetting Password'; }
+    }else{
+      echo 'Passwords do not match, incorrect username, or incorrect password.';
     }
-  }}
+  }
+}
 if (!isset($_SESSION['username']) || !isset( $_SESSION['password'])) {
   echo'
   <p> Please <a href="login.php">log in</a> to reset password.</p>';
