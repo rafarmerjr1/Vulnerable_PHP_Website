@@ -1,4 +1,5 @@
 <?php include("header.php"); ?>
+<main>
 <body>
    <h2>Welcome to Custom Clothes!</h2>
    <p>Custom clothes for hip people that like mason jars and do other hip shit.</p>
@@ -9,5 +10,10 @@
      <li>Leave us a review if you like our site!</li>
      <li>Now Hiring! In need of a web developer</li>
    </ul>
+   <figure>
+     <img alt="clothing" src="resources/img/clothes.jpeg" />
+     <figcaption>We hope you love our clothes!</figcaption>
+   </figure>
 </body>
+</main>
 <?php include("footer.php"); ?>
