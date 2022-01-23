@@ -25,8 +25,10 @@ if (!isset($_SESSION['username'])){
 //Image upload functionality
 $root = getcwd();
 $target_dir = $root."/resources/user_images/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir .($_FILES["fileToUpload"]["name"]);
+$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));  //should check only the end extension
+//$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $uploadOk = 1;
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); //can check filesize later
@@ -50,7 +52,6 @@ if(isset($_POST["submit"])) {
       echo "<p>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</p>";}
 }
 }
-
 // Grab and display photographs:
 $root = getcwd();
 $photo_folder = $root.'/resources/user_images/';
@@ -63,7 +64,7 @@ echo '<br>'; */
 foreach ($images as $image){
   $image_path = $photo_relative.$image;
   if ($image!='.' && $image!='..'){
-    echo '<img src="'.$image_path.'">';
+    echo '<a href="'.$image_path.'"><img src="'.$image_path.'"></a>';
   }
 }
 ?>
