@@ -4,7 +4,7 @@
       session_start();
       if ($_SESSION['usertype'] == 'admin'){
         echo'
-      <h4><u>Admin notes</u></h4>
+      <h4><u>Admin tools</u></h4>
       <p>View File structure here:</p>
       <form method ="POST"><button type ="submit" name="dir">Directory List</button></form>
       ';
@@ -25,31 +25,65 @@ echo '
     list_photos();
     echo '</ul>';
   }
-// View order forms
+//check if image file exists
 echo '
-<p>List Orders here:</p>
-<form method ="POST"><button type ="submit" name="list_order">Order List</button></form>';
-if (isset($_REQUEST['list_order'])){
-  include 'hidden/secretdir.php';
-  echo '<ul>';
-  list_orders();
-  echo '</ul>';
-}
-//Now write tool allo admin to enter ../user_images/file.svg to execute XXE
-
-echo'
-<p>View Order details here.  Enter filename:</p>
+<h4><u>Delete or modify user-uploaded images.</u></h4>
+<p>Check if image exists here:</p>
 <form method ="POST">
-<input name="view_order" type="text" placeholder="filename">
-<button type ="submit">Review Order</button></form>';
-if (isset($_REQUEST['view_order'])){
-  include 'hidden/secretdir.php';
-  $file = $_REQUEST['view_order'];
-  //view_orders($file);
+<input name="check_image" type="text" placeholder="image filename">
+<button type ="submit">Choose image</button>
+</form>';
+if (isset($_REQUEST['check_image'])){
+  $image_name=$_REQUEST['check_image'];
   $root = getcwd();
-  $filename = ($root.'/resources/orders/'.$file);
-  echo ''.$filename.'';
+  $photo_dir = $root.'/resources/user_images';
+  $a = scandir($photo_dir);
+  foreach ($a as $x){
+    if ($x == $image_name){
+      echo '<p>Image: '.$image_name.' found!</p>';
 }
+}
+}
+echo'
+<p>Modify or Delete user-submitted image:</p>
+<form method="POST">
+<input name="select_image" type="text" placeholder="image filename"> <br>
+<label><input name="type" type="radio" value="delete"/>Delete Image</label> <br>
+<label><input name="type" type="radio" value="modify"/>Modify Image</label> <br>
+<label><input name="type" type="radio" value="recover"/>Recover Image</label> <br>
+<button type ="submit">Make Change</button>
+<p><i> Warning: This change may be irreversible!</i></p>
+</form>
+';
+//delete photo
+if (isset($_REQUEST['select_image']) && ($_POST['type'] == "delete")){
+  $image_name=$_REQUEST['select_image'];
+  $root = getcwd();
+  $photo = $root.'/resources/user_images/'.$image_name;
+  $trash_folder = $root.'/resources/deleted_images/';
+  //echo '<p>'.$photo.'</p>';
+  //echo '<p>'.$photo.'</p>';
+  $trash_file = $trash_folder.$image_name;
+  //echo '<p>'.$trash_file.'</p>';
+  if (rename($photo, $trash_file)){
+    echo "<p>The file ". $photo. " has been moved to the trash folder.</p>";}
+    else {echo '<p>An error has occurred.</p>';}
+  }
+//recover photo
+if (isset($_REQUEST['select_image']) && ($_POST['type'] == "recover")){
+  $image_name=$_REQUEST['select_image'];
+  $root = getcwd();
+  $photo = $root.'/resources/user_images/'.$image_name;
+  $trash_folder = $root.'/resources/deleted_images/';
+  //echo '<p>'.$photo.'</p>';
+  //echo '<p>'.$photo.'</p>';
+  $trash_file = $trash_folder.$image_name;
+  //echo '<p>'.$trash_file.'</p>';
+  if (rename($trash_file, $photo)){
+    echo "<p>The file ".$image_name. " has been recovered.</p>";}
+    else {echo '<p>An error has occurred.</p>';
+    }
+  }
 
 } else {
      echo'
