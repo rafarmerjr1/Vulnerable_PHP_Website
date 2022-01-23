@@ -3,7 +3,7 @@
 <body>
   <h3>Gallery</h3>
   <p>We haven't linked our social media accounts yet.
-  But please upload images of yourself wearing our products here!</p>
+  But check out images our products here!</p>
   <br>
 <?php
 //check authentication:
@@ -16,13 +16,7 @@ if ($_SESSION['usertype'] == 'admin') {
   <input type="file" name="fileToUpload" id="fileToUpload">
   <button type="submit" name="submit">Upload!</button>
 </form>';
-}
-if (!isset($_SESSION['username'])){
-  echo'
-  <p> Please <a href=login.php>log in</a> as webadmin to upload images.</p>';
-}
-?>
-<?php
+
 //Image upload functionality - SVG for XXe?
 $root = getcwd();
 $target_dir = $root."/resources/user_images/";
@@ -40,7 +34,7 @@ if(isset($_POST["submit"])) {
     $uploadOk = 0;
   }
   if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"
-  || $imageFileType == "gif" && $imageFileType != "svg") {
+  || $imageFileType == "gif" || $imageFileType == "svg") {
     $uploadOk = 1;
   }
   //check if passed upload screening
@@ -51,8 +45,13 @@ if(isset($_POST["submit"])) {
     //echo "<p>I try</p>";
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
       echo "<p>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</p>";}
+}}
 }
+if (!isset($_SESSION['username'])){
+  echo'
+  <p> Please <a href=login.php>log in</a> as webadmin to upload images.</p>';
 }
+
 // Grab and display photographs:
 $root = getcwd();
 $photo_folder = $root.'/resources/user_images/';

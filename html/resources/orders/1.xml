@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+  <User>
+    <Name>Ellen Adams</Name>
+  </User>
+  <Items>
+    <Item product_id="1">
+      <ProductName>Jeans</ProductName>
+      <Quantity>1</Quantity>
+      <USPrice>$200</USPrice>
+    </Item>
+  </Items>

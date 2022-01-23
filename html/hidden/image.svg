@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!DOCTYPE root [<!ENTITY test SYSTEM 'file:/secretdir.php'>]>
+<root>&test;</root>
