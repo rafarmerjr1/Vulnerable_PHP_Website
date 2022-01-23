@@ -6,6 +6,7 @@ Attack Path
 2. SQLi on orders page for webadmin password --done
 3. XXE form on Admin-only Uploads form for DB creds/URL
 	- change orders page to "uploads" and set admin-only privs on it.
+3.5 - Password reset page vulnerable to PHP type juggling
 - find way to XXE DB creds, and DB URL
 4. Shell can be uploaded and executed to get reverse shell via admin SQL rights
 	something like:
