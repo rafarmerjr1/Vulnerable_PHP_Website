@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])){
 }
 ?>
 <?php
-//Image upload functionality
+//Image upload functionality - SVG for XXe?
 $root = getcwd();
 $target_dir = $root."/resources/user_images/";
 //$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -34,12 +34,12 @@ if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); //can check filesize later
   //Check filetype
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
+  && $imageFileType != "gif" && $imageFileType != "svg") {
     echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
     $uploadOk = 0;
   }
   if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"
-  || $imageFileType == "gif" ) {
+  || $imageFileType == "gif" && $imageFileType != "svg") {
     $uploadOk = 1;
   }
   //check if passed upload screening
