@@ -38,4 +38,13 @@ foreach ($a as $x){
   echo '</li>';
 }}
 }
+function list_xml(){
+$root = getcwd()."/resources/orders";
+$a = scandir($root);
+global $x;
+foreach ($a as $x){
+  if (($x != '.') && ($x != '..')){
+  echo "<button name=\"$x\">$x</button><br>";
+}}
+}
 ?>

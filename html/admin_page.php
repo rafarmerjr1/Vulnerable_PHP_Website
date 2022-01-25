@@ -10,7 +10,7 @@
       ';
   //list dir
   if (isset($_REQUEST['dir'])){
-    include 'hidden/secretdir.php';
+    include 'resources/secretdir.php';
     echo '<ul>';
     list_dir();
     echo '</ul>';
@@ -20,7 +20,7 @@ echo '
 <p>View user images here:</p>
 <form method ="POST"><button type ="submit" name="images">Photo List</button></form>';
   if (isset($_REQUEST['images'])){
-    include 'hidden/secretdir.php';
+    include 'resources/secretdir.php';
     echo '<ul>';
     list_photos();
     echo '</ul>';
@@ -82,6 +82,16 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "rename")){
     echo "<p>The file ".$image_name. " has been renamed to ".$new_name.".</p>";}
     else {echo '<p>An error has occurred.</p>';
     }
+  }
+  //list orders
+  echo '
+  <p>Review orders here:</p>
+  <form method ="POST"><button type ="submit" name="orders">Review Orders</button></form>';
+if (isset($_REQUEST['orders'])){
+    include 'resources/secretdir.php';
+    echo '<form method="POST">';
+    list_xml();
+    echo '</form>';
   }
 
 } else {
