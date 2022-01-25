@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Order>
-  <order order_num="3">
-    <Name>1</Name>
-    <Address>1</Address>
-    <Email>1</Email>
-    <Item>1</Item>
-  </order>
-</Order>

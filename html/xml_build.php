@@ -2,7 +2,7 @@
     function make_xml($name,$addr,$email,$item){
        global $xml_file_name;
        $root_dir = getcwd()."/";
-       $orders_dir = $root_dir."resources/orders/";
+       $orders_dir = $root_dir."/resources/orders/";
        $a = scandir($orders_dir);
        global $filecount;
        $filecount = count($a);
@@ -28,6 +28,6 @@
         $root->appendChild($order_node);
         $dom->appendChild($root);
       $dom->save($xml_file_name);
-      echo "<p>$xml_file_name has been successfully created</p>";
+      echo "<p>Your order has been successfully created! Thank you!</p>";
     }
  ?>

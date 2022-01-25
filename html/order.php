@@ -24,8 +24,8 @@ if (isset($_SESSION['username'])) {
     <p>
     <select id="item" name="item">
     <option selected="selected" value="1">Item</option>
-    <option value="1">Raw Denim Jeans</option>
-    <option value="2">Suspenders</option>
+    <option value="Raw_Denim_Jeans">Raw Denim Jeans</option>
+    <option value="Suspenders">Suspenders</option>
     </select>
     </br>
     <button type ="submit">Place Order</button>
@@ -41,7 +41,7 @@ if (isset($_SESSION['username'])) {
        $item = $_REQUEST["item"];
        make_xml($name,$addr,$email,$item);
 }
-} // this bracken ends the "if logged in" logic
+} // ends the "if logged in" logic
 if (!isset($_SESSION['username'])){
   echo '<h4>You must <a href=login.php>log in</a> to use this tool.</h4>';
 }
