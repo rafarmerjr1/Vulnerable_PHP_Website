@@ -26,15 +26,17 @@ echo '
     echo '</ul>';
   }
 echo'
-<p>Delete or Recover user-submitted image:</p>
 <form method="POST">
+<p>
+<label>Delete or Recover user-submitted image:</label>
 <input name="select_image" type="text" placeholder="image filename"> <br>
 <label><input name="type" type="radio" value="delete"/>Delete Image</label> <br>
 <label><input name="type" type="radio" value="recover"/>Recover Image</label> <br>
 <label><input name="type" type="radio" value="rename"/>Rename Image</label> <br>
 <input name="new_name" type="text" placeholder="new image filename"> <br>
-<p><i> Warning: This change may be irreversible!</i></p>
+<i> Warning: This change may be irreversible!</i>
 <button type ="submit">Make Change</button>
+</p>
 </form>
 ';
 //delete photo
