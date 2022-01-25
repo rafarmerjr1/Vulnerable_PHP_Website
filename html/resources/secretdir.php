@@ -42,14 +42,11 @@ function list_xml(){
 $root = getcwd()."/resources/orders";
 $a = scandir($root);
 global $x;
-echo '<form method="POST">';
+echo '<ul>';
 foreach ($a as $x){
   if (($x != '.') && ($x != '..')){
-  echo "<button name=\"$x\">$x</button><br>";
+  echo "<li>$x</li>";
 }}
-echo '</form>';
-if (isset($_REQUEST["$x"])){
-  echo "<p>$x</p>"
-}
+echo '</ul>';
 }
 ?>

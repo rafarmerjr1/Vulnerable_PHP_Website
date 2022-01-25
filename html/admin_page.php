@@ -15,8 +15,20 @@
     list_dir();
     echo '</ul>';
   }
+  //list xml orders - make a button?
+echo '
+  <h4><u>Order tools</u></h4>
+  <p>Review orders here:</p>
+  <form method ="POST"><button type ="submit" name="orders">Review Orders</button></form>';
+if (isset($_REQUEST['orders'])){
+    include 'resources/secretdir.php';
+    list_xml();
+    //header("Location:xml_read.php");
+  }
+
   //list photos
 echo '
+<h4><u>Image tools</u></h4>
 <p>View user images here:</p>
 <form method ="POST"><button type ="submit" name="images">Photo List</button></form>';
   if (isset($_REQUEST['images'])){
@@ -83,15 +95,7 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "rename")){
     else {echo '<p>An error has occurred.</p>';
     }
   }
-  //list xml orders - make a button?
-echo '
-  <p>Review orders here:</p>
-  <form method ="POST"><button type ="submit" name="orders">Review Orders</button></form>';
-if (isset($_REQUEST['orders'])){
-    //include 'resources/secretdir.php';
-    //list_xml();
-    header("Location:xml_read.php");
-  }
+
 
 } else {
      echo'
