@@ -34,7 +34,7 @@ echo'
 <label><input name="type" type="radio" value="recover"/>Recover Image</label> <br>
 <label><input name="type" type="radio" value="rename"/>Rename Image</label> <br>
 <input name="new_name" type="text" placeholder="new image filename"> <br>
-<i> Warning: This change may be irreversible!</i>
+<i> Warning: This change may be irreversible!</i><br>
 <button type ="submit">Make Change</button>
 </p>
 </form>
@@ -83,15 +83,14 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "rename")){
     else {echo '<p>An error has occurred.</p>';
     }
   }
-  //list orders
-  echo '
+  //list xml orders - make a button?
+echo '
   <p>Review orders here:</p>
   <form method ="POST"><button type ="submit" name="orders">Review Orders</button></form>';
 if (isset($_REQUEST['orders'])){
-    include 'resources/secretdir.php';
-    echo '<form method="POST">';
-    list_xml();
-    echo '</form>';
+    //include 'resources/secretdir.php';
+    //list_xml();
+    header("Location:xml_read.php");
   }
 
 } else {
