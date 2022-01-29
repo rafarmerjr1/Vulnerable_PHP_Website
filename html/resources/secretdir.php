@@ -38,6 +38,7 @@ foreach ($a as $x){
   echo '</li>';
 }}
 }
+/*
 function list_xml(){
 $root = getcwd()."/resources/orders";
 $a = scandir($root);
@@ -49,4 +50,5 @@ foreach ($a as $x){
 }}
 echo '</ul>';
 }
+*/
 ?>

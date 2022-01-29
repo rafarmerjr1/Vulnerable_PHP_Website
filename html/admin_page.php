@@ -8,6 +8,7 @@
       <p>View File structure here:</p>
       <form method ="POST"><button type ="submit" name="dir">Directory List</button></form>
       ';
+  /*
   //list dir
   if (isset($_REQUEST['dir'])){
     include 'resources/secretdir.php';
@@ -15,15 +16,14 @@
     list_dir();
     echo '</ul>';
   }
+  */
   //list xml orders - make a button?
 echo '
-  <h4><u>Order tools</u></h4>
+  <h4><u>Orders page</u></h4>
   <p>Review orders here:</p>
   <form method ="POST"><button type ="submit" name="orders">Review Orders</button></form>';
 if (isset($_REQUEST['orders'])){
-    include 'resources/secretdir.php';
-    list_xml();
-    //header("Location:xml_read.php");
+    header("Location:xml_read.php");
   }
 
   //list photos
@@ -60,10 +60,7 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "delete")){
   $root = getcwd();
   $photo = $root.'/resources/user_images/'.$image_name;
   $trash_folder = $root.'/resources/deleted_images/';
-  //echo '<p>'.$photo.'</p>';
-  //echo '<p>'.$photo.'</p>';
   $trash_file = $trash_folder.$image_name;
-  //echo '<p>'.$trash_file.'</p>';
   if (rename($photo, $trash_file)){
     echo "<p>The file ". $image_name. " has been moved to the trash folder.</p>";}
     else {echo '<p>An error has occurred.</p>';}
