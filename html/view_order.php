@@ -5,7 +5,7 @@
       if ($_SESSION['usertype'] == 'admin'){
         //get file
         $root = getcwd();
-        $file = $root."/resources/orders/".$order_name;
+        $file = $root."/resources/orders/".$_REQUEST['order'];
         $xmlfile = file_get_contents($file);
         //xml transformation
         libxml_disable_entity_loader (false);

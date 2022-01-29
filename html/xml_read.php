@@ -62,8 +62,8 @@ echo'
 
 if (isset($_REQUEST['order'])){
   global $order_name;
-  $order_name = ($_REQUEST['order']); 
-  header("Location:view_order.php");
+  $order_name = ($_REQUEST['order']);
+  header("Location:view_order.php?order=$order_name");
 }
  ?>
 </body>
