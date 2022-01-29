@@ -4,9 +4,7 @@
       session_start();
       if ($_SESSION['usertype'] == 'admin'){
         echo'
-      <h4><u>Admin tools</u></h4>
-      <p>View File structure here:</p>
-      <form method ="POST"><button type ="submit" name="dir">Directory List</button></form>
+      <h2>Admin tools</h2>
       ';
   /*
   //list dir
