@@ -17,12 +17,13 @@
         $order_email = $order_info->order->Email;
         $order_item = $order_info->order->Item;
         //echo $xmlfile;
+        //make this a table:
         echo "
         <p>
-        Name: $order_username <br>
-        Address: $order_addr <br>
-        Email: $order_email <br>
-        Item: $order_item <br>
+        <b>Name:</b> $order_username <br>
+        <b>Address:</b> $order_addr <br>
+        <b>Email:</b> $order_email <br>
+        <b>Item:</b> $order_item <br>
         </p>
         ";
 
