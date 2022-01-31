@@ -6,8 +6,8 @@ Attack Path
 2. SQLi on orders page for webadmin password --done
 3. Password reset page vulnerable to PHP type juggling --done
 4. Shell can be uploaded via photos --done
-4. Shell executed to get reverse shell via webadmin --done 
-	        
+4. Shell executed to get reverse shell via webadmin --done
+
 write bash script to authenticate user every 10-20 seconds
 	something like:
 	while true; do sleep 10; curl command; done;
@@ -21,6 +21,7 @@ DONE -- Create an "admin only page" for ?
 DONE -- Create page for uploads (photo gallery?)
 DONE -- PHP type juggling via password reset.
 DONE -- Implement improved appearance - Bootstrap or HTML/CSS template
+- dockerize mysql/MariaDB and PHP site to PHP 7
 
 PHP app:
 XSS -done
