@@ -1,7 +1,8 @@
 <?php
     function OpenCon()
      {
-     $dbhost = "localhost";
+     //$dbhost = "localhost";
+     $dbhost = "db";
      $dbuser = "admin"; #db admin NOT webadmin
      $dbpass = "administratorPassword!!!";
      $db = "webapp";
