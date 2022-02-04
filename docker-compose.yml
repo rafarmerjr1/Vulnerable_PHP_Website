@@ -8,8 +8,8 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - db
-    volumes:
-      - ./html:/var/www/html/
+    #volumes:
+    #  - ./html:/var/www/html/
     ports:
       - 8000:80
   db:
