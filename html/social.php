@@ -11,7 +11,7 @@ session_start();
 if (isset( $_SESSION['username'])) {
   echo'
 <form method="POST" enctype="multipart/form-data">
-  <p>Hi webadmin,
+  <p>Hi,
   upload photos here:</p>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <button type="submit" name="submit">Upload!</button>
