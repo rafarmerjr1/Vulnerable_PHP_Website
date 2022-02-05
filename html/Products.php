@@ -33,8 +33,7 @@
                     $product_id=$_REQUEST['product_id'];
                     $query = "SELECT * FROM products where product_id = $product_id";
                     if ($res = $conn->query($query)){
-                    while($obj = $res->fetch_array()){  //or fetch_object?
-                      //print_r($obj);
+                    while($obj = $res->fetch_array()){
                       echo '
                               <tr><td>' . $_REQUEST['product_id'] .' </td>
                             <td>
@@ -44,7 +43,6 @@
 
                     }}
                     elseif($conn->error){
-                      //print_r($conn->error);
                       echo '
                               <tr><td>' . $_REQUEST['product_id'] .' </td>
                             <td>
@@ -56,8 +54,6 @@
               ?>
         </tbody>
       </table> <?php
-                //1 UNION SELECT NULL, Username, Password FROM users WHERE Username = "webadmin"
-                // SELECT * FROM `products` WHERE `product_id` = 1 UNION SELECT NULL, `Username`,`Password` ,NULL FROM `users` WHERE `Username` = "webadmin"
       if (!isset($_SESSION['username'])){
         echo "<h4>You must <a href=login.php>log in</a> to use this tool.</h4>";
       }

@@ -69,10 +69,7 @@ if (isset($_REQUEST['select_image']) && ($_POST['type'] == "recover")){
   $root = getcwd();
   $photo = $root.'/resources/user_images/'.$image_name;
   $trash_folder = $root.'/resources/deleted_images/';
-  //echo '<p>'.$photo.'</p>';
-  //echo '<p>'.$photo.'</p>';
   $trash_file = $trash_folder.$image_name;
-  //echo '<p>'.$trash_file.'</p>';
   if (rename($trash_file, $photo)){
     echo "<p>The file ".$image_name. " has been recovered.</p>";}
     else {echo '<p>An error has occurred.</p>';

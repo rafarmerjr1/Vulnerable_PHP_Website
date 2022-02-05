@@ -16,7 +16,6 @@
         $order_addr = $order_info->order->Address;
         $order_email = $order_info->order->Email;
         $order_item = $order_info->order->Item;
-        //echo $xmlfile;
         //make this a table:
         echo "
         <p>

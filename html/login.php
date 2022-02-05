@@ -18,9 +18,8 @@
                     echo('<p>Please enter username and password</p>');
                   }
                   if (isset( $_REQUEST['username']) && isset( $_REQUEST['password'])){
-                  // Preparing the SQL statement will prevent SQL injection.
+                  // Preparing the SQL statement 
                   if ($stmt = $conn->prepare('SELECT Username, Password FROM users WHERE Username = ?')) {
-	                   // Bind parameters (s = string)
 	                    $stmt->bind_param('s', $_REQUEST['username']);
 	                     $stmt->execute();
 	                      // Store the result so we can check if the account exists in the database.
@@ -40,9 +39,7 @@
                              $_SESSION['usertype']= 'user';
                            }
                            echo "<h3>You are now logged in.</h3>";
-                           //echo '<h2>$_SESSION['usertype']</h2>';
                           die("<p><a href='continue.php'>Click here to continue!</a></p>");
-                          // can also send to continue.php to display user info
 	                                      } else {
 		                                        // Incorrect password
 		                                          echo '<p>Incorrect username and/or password!</p>';

@@ -15,7 +15,7 @@
       <?php
                   include 'db.php';
                   $conn = OpenCon();
-                  //Super vulnerable XSS #1:
+                  //insert comment:
                   if (isset( $_REQUEST['name']) && isset( $_REQUEST['comment'])){
                       $conn->query("INSERT INTO comments (name, usercomment) values ('" . $_REQUEST['name'] . "','" . $_REQUEST['comment']. "' )");
                       echo '

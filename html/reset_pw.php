@@ -7,7 +7,7 @@
   include 'db.php';
   session_start();
   if (isset($_SESSION['username']) && isset( $_SESSION['password'])) {
-    $username = ($_SESSION['username']);  //Left insecure for XSS in username?
+    $username = ($_SESSION['username']);
     echo "<h4>Welcome back $username </h4>";
     echo '<p> Change your password below:</p>
     <form method="POST">
@@ -22,7 +22,6 @@
     if (isset($_POST['Username']) && isset( $_POST['new_password'])) {
     $conn = OpenCon();
     if ($stmt = $conn->prepare('SELECT Username, Password FROM users WHERE Username = ?')) {
-       // Bind parameters (s = string)
         $stmt->bind_param('s', $_SESSION['username']);
          $stmt->execute();
           // Store the result so we can check if the account exists in the database.
@@ -31,12 +30,9 @@
     if ($stmt->num_rows > 0) {
        $stmt->bind_result($username, $password);
         $stmt->fetch();
-           /*
-           The below comparison allows for php type juggling:
-           */
            if (($_POST['new_password'] == $_POST['new_password2']) && (strcmp($_POST['old_password'],$password) == 0)){
              $conn = OpenCon();
-             $username_entered = $_POST['Username'];  //allow to change other users
+             $username_entered = $_POST['Username'];
              $new_password = $_POST['new_password'];
              $change="UPDATE users SET Password = '$new_password' where Username = '$username_entered'";
              if ($run = $conn->query($change)){
