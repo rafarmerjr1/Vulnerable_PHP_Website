@@ -1,5 +1,7 @@
 # Vulnerable PHP Application
 
+**NOTE: Still working on XXE path.  This may not be functional yet**
+
 **Dependencies**
 
 - docker

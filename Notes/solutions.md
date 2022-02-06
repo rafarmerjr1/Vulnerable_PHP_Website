@@ -87,7 +87,7 @@ The file "secretdir" just holds functions.  It initially was for something else,
 2. Authenticate with user cookie (or just skip this step and log in as a user from the start)
 3. upload a shell with a .php.jgp extension on the 'Gallery' page. Other script types may work, like sh.jpg.
 4. Navigate to products page
-5 SQLi products page via union select for webadmin password
+5. SQLi products page via union select for webadmin password
 
 OR
 
