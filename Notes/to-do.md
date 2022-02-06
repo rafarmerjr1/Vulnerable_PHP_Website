@@ -24,14 +24,14 @@ DONE -- dockerize mysql/MariaDB and PHP site to PHP 7
 
 **PHP App Vulns**
 
-XSS -done
+DONE -- XSS
 
-SQLi -done
+DONE -- SQLi
 
-XXE -?
+??? -- XXE 
 
-PHP type juggling --done
+DONE -- PHP type juggling
 
-File upload bypass --done
+DONE -- File upload bypass
 
-RCE/shell -done
+DONE -- RCE/shell
