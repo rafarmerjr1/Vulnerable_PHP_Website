@@ -6,16 +6,8 @@
         echo'
       <h2>Admin tools</h2>
       ';
-  /*
-  //list dir
-  if (isset($_REQUEST['dir'])){
-    include 'resources/secretdir.php';
-    echo '<ul>';
-    list_dir();
-    echo '</ul>';
-  }
-  */
-  //list xml orders - make a button?
+
+  //list xml orders
 echo '
   <h4><u>Orders page</u></h4>
   <p>Review orders here:</p>

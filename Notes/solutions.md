@@ -16,7 +16,7 @@ With a python listener on the host machine, a script like the above should retur
 
 **Order Form - order.php**
 
-Saves an order as an XML file. Only the webadmin account can review orders. Send some XXE here for later.  Order "form" is insecure, but the intended path is to upload something to the "Upload order form option".  There is an example `xxe.xml` file in the Notes folder of the repo.  XML orders can only be viewed at the admin.php page, which links to xml_read.php. Submitted orders are stored in the resources/orders folder.
+Saves an order as an XML file. Only the webadmin account can review orders. Send some XXE here for later.  Order "form" is insecure, but the intended path is to upload something to the "Upload order form option".  There is an example `xxe.xml` file in the Notes folder of the repo.  XML orders can only be viewed at the admin page, which links to xml_read.php. Submitted orders are stored in the resources/orders folder.
 
 xxe.xml:
 ```
@@ -43,10 +43,10 @@ Very open to SQL injection.  Once authenticated as a base user, the attacker can
 **Gallery - social.php**
 
 Reasonable file upload filter, but still weak.  This filter will catch files ending in php, but not php.jpg.  This should work:
-`evil.php.jpeg`
+`evil.php.jpg`
 Then, if an attacker has also grabbed the webadmin password from the products page, from the admin portal they can rename uploads and change the file to `evil.php`.
 
-I've included a cmd.php file in the Notes folder if you want to test it. Submitted images are stored in the resources/user_images folder.
+I've included a cmd.php file in the Notes folder if you want to test it. Submitted images are stored in the resources/user_images folder.  Also accepts svg files if you'd like to try XXE that way, although I haven't tested it.
 
 ## Admin-only Pages
 
@@ -64,19 +64,15 @@ The syntax in the logic is vulnerable:
 ```
 if (($_POST['new_password'] == $_POST['new_password2']) && (strcmp($_POST['old_password'],$password) == 0)){
 ```
-The first half of this section checks that the new password is entered twice, identically.  The second half compares the DB and user-supplied password to ensure that they are the same.  The `== 0` comparison is weak.  PHP evaluates empty arrays as false, which is also "equal to" zero.  Intercepting the HTTP request and changing the 'old_password' to an empty array should allow an attacker to reset the webadmin's password to whatever they like.  Something like this should work:
+The first half of this section checks that the new password is entered twice, identically.  The second half compares the DB-supplied and user-supplied password to ensure that they are the same. If the "old" password entered by the user is not the same as their current password, the password change will fail. However, The `== 0` comparison is weak.  PHP evaluates empty arrays as false, which is also "equal to" zero.  Intercepting the HTTP request and changing the 'old_password' to an empty array should allow an attacker to reset the webadmin's password to whatever they like.  Something like this should work:
 
 ```
-In Burp Suite or another proxy, change old_password=foobar to old_password[]=''
+In Burp Suite or another proxy: change old_password=foobar to old_password[]=''
 ```
 
 **View Orders - view_order.php**
 
 This page renders user provided XML (in the form of an "order form") to the webadmin user.  This should be useful for leveraging XXE attacks submitted via the 'Order Form' page. Orders are automatically assigned numeric names in ascending order.
-
-**continue.php**
-
-This page reflects the user name back to an authenticated user.  Untested, but likely will accept XSS or other input based attacks.  User name is committed to the DB.  No functionality to add a new user or "sign up" is included in the site currently, so it would be difficult to exploit without DB injection.
 
 **db.php**
 

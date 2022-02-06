@@ -4,8 +4,8 @@
     /*
     DBhost must be changed depending on if you are using dockerized webapp
     or a locally hosted httpd/mariaDB webapp */
-     $dbhost = "localhost";  //localhost for local apache/mysql httpd/mariaDB
-     //$dbhost = "db"; //db for referenced DB in docker-docker.yml
+     //$dbhost = "localhost";  //localhost for local apache/mysql httpd/mariaDB
+     $dbhost = "db"; //db for referenced DB in docker-docker.yml
      $dbuser = "admin"; #db admin NOT webadmin
      $dbpass = "administratorPassword!!!";
      $db = "webapp";

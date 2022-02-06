@@ -16,7 +16,7 @@
         $order_addr = $order_info->order->Address;
         $order_email = $order_info->order->Email;
         $order_item = $order_info->order->Item;
-        //make this a table:
+        //return order info:
         echo "
         <p>
         <b>Name:</b> $order_username <br>

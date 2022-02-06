@@ -5,7 +5,7 @@ Let us know in the <a href='/comments.php'>"Leave A Review"</a> page after loggi
 and we will reach out to you as soon as possible. <br>
 <br>
   <b>Item out of stock?</b><br>
-  Submit a pre-order form and we will contact you when it is available.<br>
+  Leave a comment and we will contact you when it is available.<br>
   <br>
   <b>Pre-Order Form</b><br>
   Downloadable form coming soon</p>

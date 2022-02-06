@@ -17,13 +17,11 @@ if (isset( $_SESSION['username'])) {
   <button type="submit" name="submit">Upload!</button>
 </form>';
 
-//Image upload functionality - SVG for XXe?
+//Image upload functionality - leave SVG for XXe?
 $root = getcwd();
 $target_dir = $root."/resources/user_images/";
-//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir .($_FILES["fileToUpload"]["name"]);
 $imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));  //should check only the end extension
-//$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $uploadOk = 1;
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]); //can check filesize later
