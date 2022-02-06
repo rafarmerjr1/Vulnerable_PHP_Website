@@ -1,5 +1,5 @@
 <?php
-  /*  function make_xml($name,$addr,$email,$item){
+    function make_xml($name,$addr,$email,$item){
        global $xml_file_name;
        $root_dir = getcwd()."/";
        $orders_dir = $root_dir."/resources/orders/";
@@ -29,38 +29,5 @@
         $dom->appendChild($root);
       $dom->save($xml_file_name);
       echo "<p>Your order has been successfully created! Thank you!</p>";
-    } */
-
-    function make_xml($name,$addr,$email,$item){
-         global $xml_file_name;
-         $root_dir = getcwd()."/";
-         $orders_dir = $root_dir."/resources/orders/";
-         $a = scandir($orders_dir);
-         global $filecount;
-         $filecount = count($a);
-         global $filename;
-         $filename = $orders_dir.$filecount.'.xml';
-         $data=<<<EOD
-         <?xml version="1.0" encoding="utf-8"?>
-         <Order>
-           <order order_num="$filecount">
-             <Name>$name</Name>
-             <Address>$addr</Address>
-             <Email>$email</Email>
-             <Item>$item</Item>
-           </order>
-         </Order>
-         EOD;
-         echo $data;
-         echo $filename;
-         $xml_file_name = fopen($filename,'w');
-         echo '1';
-         fwrite($xml_file_name, $data);
-         echo '2';
-         fclose($xml_file_name);
-         echo "<p>Your order has been successfully created! Thank you!</p>";
-       }
-
-
-
+    }
  ?>

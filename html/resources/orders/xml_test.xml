@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Order>
-  <order order_num="5">
-    <Name> &lt;!DOCTYPE foo [ &lt;!ENTITY xxe SYSTEM "file:///etc/passwd"&gt; ]&gt;</Name>
-    <Address>&xxe;</Address>
-    <Email>no</Email>
-    <Item>Raw_Denim_Jeans</Item>
-  </order>
-</Order>

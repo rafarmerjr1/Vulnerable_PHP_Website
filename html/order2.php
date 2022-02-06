@@ -2,10 +2,11 @@
 <body>
   <?php
   session_start();
-  /*
+
+//form method
 if (isset($_SESSION['username'])) {
   echo'
-  <p>Place order below:</p>
+  <p><b>Place order below:</b></p>
   <form method="POST">
   <p>
     <label>Full Name</label><br>
@@ -34,7 +35,6 @@ if (isset($_SESSION['username'])) {
     </form>
       ';
 
-      //Lets try this in-line
       if ((isset($_REQUEST["name"])) && (isset($_REQUEST["address"])) && (isset($_REQUEST["email"])) && (isset($_REQUEST["item"]))){
        require_once('xml_build.php');
        global $name, $addr, $email, $item;
@@ -43,11 +43,14 @@ if (isset($_SESSION['username'])) {
        $email= $_REQUEST["email"];
        $item = $_REQUEST["item"];
        make_xml($name,$addr,$email,$item);
-} */
-if (isset($_SESSION['username'])) {
+}
+
+//upload method
   echo'
-  <p>Upload your own order form below.</p>
-  <p> Your order form should be formatted like this:
+  <p><b>Or, Upload your own order form below.</b></p>
+  <p> Your order form should be formatted like this:';
+
+    $example=<<<EXMPL
     <?xml version="1.0" encoding="utf-8"?>
     <Order>
       <order order_num="4">
@@ -57,32 +60,32 @@ if (isset($_SESSION['username'])) {
         <Item>Raw_Denim_Jeans</Item>
       </order>
     </Order>
-  <p>
+    EXMPL;
 
-  <p>
-  <form method ="POST">
-  <label>Order form</label><br>
-  <textarea rows="15" name="order_form"></textarea><br>
-  <label><Name of your order</label>
-  <input type="file" name="order_name" id="orderToUpload">
-  <button type="submit_order">Submit Order</button><br>
+  echo "<p><pre>".htmlspecialchars($example)."</pre></p>";
+
+  echo'
+  <form method ="POST" enctype="multipart/form-data">
+  <p>Order form</p><br>
+  <input type="file" name="orderToUpload" id="orderToUpload">
+  <button type="submit" name="submit_order">Submit Order</button><br>
   </form>
-  </p>
-';
-  if ((isset($_REQUEST["order_form"])) && (isset($_REQUEST["submit_order"])) && (isset($_REQUEST["order_name"]))){
+  </p>';
+
+  if ((isset($_POST["submit_order"]))){
     $root_dir = getcwd()."/";
     $orders_dir = $root_dir."/resources/orders/";
     $filename = $orders_dir.($_FILES["orderToUpload"]["name"]);
     $orderFileType = strtolower(pathinfo($_FILES["orderToUpload"]["name"],PATHINFO_EXTENSION));
     if($orderFileType != "xml"){
-      echo "<p>Sorry, only xml files allowed</p>";
+      echo "<p>Sorry, only xml files allowed</p>";}
       if($orderFileType == "xml"){
         if (move_uploaded_file($_FILES["orderToUpload"]["tmp_name"], $filename)){
           echo "<p>The order ". basename($_FILES["orderToUpload"]["name"]). " has been uploaded.</p>";
         }
       }
     }
-  }
+
 } // ends the "if logged in" logic
 if (!isset($_SESSION['username'])){
   echo '<h4>You must <a href=login.php>log in</a> to use this tool.</h4>';
