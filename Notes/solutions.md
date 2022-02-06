@@ -82,7 +82,7 @@ Hard-coded database credentials are not securely stored, and are left in the def
 - **login.php**
 - **logout.php**
 - **php.ini** This is just here for docker.
-- **phpinfo.php** Included for fun, and can be attacked.
+- **phpinfo.php & phpmyadmin** Included for fun, and can be attacked.
 - **continue.php**
 
 This page reflects the user name back to an authenticated user.  Untested, but likely will accept XSS or other input based attacks.  User name is committed to the DB.  No functionality to add a new user or "sign up" is included in the site currently, so it would be difficult to exploit without DB injection.
