@@ -20,7 +20,7 @@ Two users and two comments should have been created in the database on startup. 
 
 **Visual Check**
 The page should look something like this:
-![image](https://github.com/rafarmerjr1/Vulnerable_PHP_Website/html/resources/img/CC.png)
+![image](https://github.com/rafarmerjr1/Vulnerable_PHP_Website/blob/main/html/resources/img/CC.png)
 
 **Vulnerablities:**
 
