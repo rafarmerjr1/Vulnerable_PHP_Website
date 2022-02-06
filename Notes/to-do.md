@@ -28,10 +28,16 @@ DONE -- XSS
 
 DONE -- SQLi
 
-??? -- XXE 
+??? -- XXE
 
 DONE -- PHP type juggling
 
 DONE -- File upload bypass
 
 DONE -- RCE/shell
+
+**What is left**
+
+1. Get working XXE
+2. Organize and clean up
+3. Make repo public

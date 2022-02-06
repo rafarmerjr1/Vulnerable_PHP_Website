@@ -1,4 +1,9 @@
 <?php
+
+/*
+There is not anything secret in this secretdir.
+Just a filename I used at one point */
+
 //add isAdmin check
 function list_dir(){
 $root = getcwd();
@@ -38,17 +43,4 @@ foreach ($a as $x){
   echo '</li>';
 }}
 }
-/*
-function list_xml(){
-$root = getcwd()."/resources/orders";
-$a = scandir($root);
-global $x;
-echo '<ul>';
-foreach ($a as $x){
-  if (($x != '.') && ($x != '..')){
-  echo "<li>$x</li>";
-}}
-echo '</ul>';
-}
-*/
 ?>
