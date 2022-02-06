@@ -18,10 +18,6 @@ In a browser, the "Custom Clothes" webpage should be visible at port 8000 (local
 
 Two users and two comments should have been created in the database on startup. Their credentials can be found by connecting to the database via PhpMyAdmin at port 8080, with the credentials found in db.php, or by reading the resources/script.sql file.  
 
-**Visual Check**
-
-The index.php page should look something like this:
-
 **Vulnerablities:**
 
 - SQLi
